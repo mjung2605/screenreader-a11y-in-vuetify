@@ -1,5 +1,6 @@
-# Verbesserung der Screenreader-Unterstützung in Vuetify
-## Eine komponentenbasierte Analyse und Optimierung der Accessibility-Implementierung nach WCAG 2.1
+# Verbesserung der Screenreader-Unterstützung in Vuetify: Eine komponentenbasierte Analyse und Optimierung der Accessibility-Implementierung nach WCAG 2.1
+
+## Einleitung
 
 In diesem Repository befindet sich das Resultat der Bachelorarbeit von Meike Jungilligens. Das Werk der Arbeit stellen drei Pull-Requests in das [Vuetify-Repository](https://github.com/vuetifyjs/vuetify) dar, die die Screenreader-Kompatibilität von drei ausgewählten Komponenten verbessern.
 
@@ -11,8 +12,26 @@ Den Implementierungen voraus ging die Erstellung eines Entscheidungsbaumes, der 
 
 Der Inhalt dieses Repos soll die Implementierungsentscheidungen pro Komponente und Pull-Request darlegen und verfolgt dabei das folgende Schema:
 
-- Analyse des Issues und der Tests (vgl. Kapitel 3.1 und 3.2 in der Ausarbeitung) mit dem Ziel, die konkrete Ursache der eingeschränkten Screenreader-Kompatibilität zu identifizieren und die dafür verantwortliche Haupt- oder Teilkomponente einzugrenzen. Diese Fokussierung dient der Reduktion der Komplexität und vermeidet unnötige Eingriffe in funktional unbeteiligte Komponenten.
-- Bewertung der identifizierten (Teil-)Komponente entlang des Entscheidungsbaums, um zu bestimmen, ob eine native HTML-Semantik vorliegt und ob diese die funktionalen Anforderungen der Komponente aus Sicht der Screenreader vollständig abdeckt.
-- Abgleich des Ist-Zustands der Komponente mit dem Soll-Zustand gemäß der vorhandenen Quellen mit Ableitung der notwendigen Anpassungen.
-- Umsetzung der identifizierten Anpassungen im Vuetify-Quellcode, zum Beispiel durch das gezielte Setzen oder Ergänzen von ARIA-Attributen an bestehenden Elementen.
+1. Analyse des Issues und der Tests (vgl. Kapitel 3.1 und 3.2 in der Ausarbeitung) mit dem Ziel, die konkrete Ursache der eingeschränkten Screenreader-Kompatibilität zu identifizieren und die dafür verantwortliche Haupt- oder Teilkomponente einzugrenzen. Diese Fokussierung dient der Reduktion der Komplexität und vermeidet unnötige Eingriffe in funktional unbeteiligte Komponenten.
+2. Bewertung der identifizierten (Teil-)Komponente entlang des Entscheidungsbaums, um zu bestimmen, ob eine native HTML-Semantik vorliegt und ob diese die funktionalen Anforderungen der Komponente aus Sicht der Screenreader vollständig abdeckt.
+3. Abgleich des Ist-Zustands der Komponente mit dem Soll-Zustand gemäß der vorhandenen Quellen mit Ableitung der notwendigen Anpassungen.
+4. Umsetzung der identifizierten Anpassungen im Vuetify-Quellcode, zum Beispiel durch das gezielte Setzen oder Ergänzen von ARIA-Attributen an bestehenden Elementen.
+
+## Implementierung pro Komponente
+
+Die Implementierungen basieern auf den entsprechenden Issues aus dem Vuetify-Repo, selbst durchgeführten Tests sowie dem oben beschriebenen Entscheidungsbaum. Zur besseren Nachvollziehbarkeit sind all diese Artefakte ebenfalls in diesem Repository hinterlegt (im Ordner Artefakte). Die Darlegung der Strategie erfolgt nun pro Komponente nach dem in der Einleitung aufgeführten Schema.
+
+
+### VDataTable
+
+### VTreeview
+
+### VTimepicker
+
+### VAutocomplete
+
+Das zugrundegelegene Isue wurde zur Projektlaufzeit kurz vor Implementierungsbeginn bereits gelöst und wird deswegen nicht weiter bearbeitet.
+
+## Fazit
+
 
