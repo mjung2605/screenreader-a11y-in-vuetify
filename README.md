@@ -74,6 +74,13 @@ Besonders deutlich wurde, dass native HTML-Semantik eine Grundlage für Barriere
 
 Die Pull-Requests sollen nicht nur die behandelten Komponenten verbessern, sondern auch als Orientierung für zukünftige Accessibility-Anpassungen in Vuetify dienen. Der entwickelte Entscheidungsbaum hat sich dabei als praktisches Hilfsmittel erwiesen, um konsistente und nachvollziehbare Implementierungsentscheidungen zu treffen.
 
+## Kontaktinformationen der Erstellerin
+
+Meike Jungilligens (Studentin Medieninformatik B.Sc.)
+
+E-Mail: mjungilligens@gmail.com
+
+GitHub: [mjung2605](https://github.com/mjung2605)
 
 ## Kurzes ARIA-Glossar
 
