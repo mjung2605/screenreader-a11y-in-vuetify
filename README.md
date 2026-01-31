@@ -103,10 +103,10 @@ Kennzeichnet ein einzelnes Element innerhalb einer Treeview. Wird verwendet, um 
 [Referenz für HTML-Definitionen](https://html.spec.whatwg.org/multipage/)
 
 ```<th>```:  
-Tabellenkopfzelle in HTML. Stellt native Semantik für Spalten- oder Zeilenüberschriften bereit und wird von Screenreadern automatisch als solche erkannt.
+Tabellenkopfzelle in HTML. 
 
 ```<input>```:  
-Natives HTML-Formularelement zur Dateneingabe. Bietet von Haus aus gute Accessibility-Unterstützung, kann aber durch ARIA-Attribute (z. B. `aria-invalid`) ergänzt werden.
+Natives HTML-Formularelement zur Dateneingabe. 
 
 
 
