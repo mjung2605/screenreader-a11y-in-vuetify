@@ -39,31 +39,28 @@ SC folgt
 
 ### VTreeview
 
-todo: an treeview anpassen
-
-1. Das Issue (bestätigt durch die Tests) bezieht sich auf die unzureichende Accessibility der Sortierinformation in der Kopfzeile der Tabelle, da sich die Buttons zum Sortieren dort befinden. In Vuetify ist dies die Teilkomponente ```VDataTableHeaders```.
-2. Pfad im Entscheidungsbaum: **JA** (```<th>``` in ```<table>```), **NEIN** (keine nativ eingebaute Sortierinformation/-Funktion). Die Implementierung erfolgt also mit nativem HTML + erweiterndem ARIA.
-3. Es ist ein APG zu sortierbaren Tabellen [vorhanden](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/). Dies empfiehlt, das native ```<th>```-HTML-Element zuverwenden und zusätzlich das ARIA-Attribut ```aria-sort``` sowie eine ergänzende Ansage, dass entsprechende Stellen sortierbar sind, zu setzen, was zur abgeleiteten Strategie in Punkt 2 passt.
-4. Vuetify verwendet intern bereits das HTML-Element ```<th>```. Der Wert von ```aria-sort``` wird im Code aus dem vorhandenen Wert ```item-order``` für die entsprechende Zelle (bzw. die dazugehörige Spalte) abgeleitet. ```aria-sort``` kann zwei Werte annehmen: *ascending* oder *descending*. Um dem Nutzer vor dem Betätigen der Buttons schon mitzuteilen, dass eine Spalte sortierbar ist, wurde diese Information in einem ```aria-label``` ergänzt. Das ```aria-label``` gibt jetzt den Titel des Elements (also hier die Spaltenüberschrift) sowie die Sortierbarkeit/Sortierung aus.
+1. Die Issues (bestätigt durch die Tests) betreffen die eingeschränkte Tastaturnavigation  und die nichterkennbaren notwendigen Informationen zu *Name, Rolle und Wert* der Teilelemente. In den Tests wurde außerdem festgestellt, dass Beziehungen zwischen Einträgen sowie deren Zustand (auf- oder zugeklappt) nicht oder nur unvollständig angesagt werden. Betroffen ist also die gesamte Baumstruktur mit den Teilkomponenten `VTreeview`, `VTreeviewChildren` und `VTreeviewItem`.
+2. Pfad im Entscheidungsbaum: **NEIN** (kein passendes natives HTML-Element für Baumstrukturen), **JA** (passende ARIA-Rollen vorhanden). Die Implementierung erfolgt über ARIA.
+3. Es ist ein [APG für Treeviews](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/) vorhanden. Dieses empfiehlt u. a. die Rollen `tree` und `treeitem` sowie die Attribute `aria-expanded`, `aria-checked` und eine eindeutige Beschriftung. In Vuetify war davon nur `aria-checked` bereits vorhanden.
+4. In `VTreeview` wurde die Rolle `tree` ergänzt. In `VTreeviewItem` wurden `role="treeitem"` und `aria-expanded` gesetzt. Zusätzlich wurde in `VTreeviewChildren` ein `aria-label` ergänzt, um den jeweiligen Teilbaum zu beschreiben. Dadurch werden Struktur und Zustand der Treeview für Screenreader nachvollziehbar.
 
 Link zur PR: folgt
 
-Code:
+Code:  
 SC folgt
 
 ### VTimepicker
 
-todo: am timepicker anpassen
-
-1. Das Issue (bestätigt durch die Tests) bezieht sich auf die unzureichende Accessibility der Sortierinformation in der Kopfzeile der Tabelle, da sich die Buttons zum Sortieren dort befinden. In Vuetify ist dies die Teilkomponente ```VDataTableHeaders```.
-2. Pfad im Entscheidungsbaum: **JA** (```<th>``` in ```<table>```), **NEIN** (keine nativ eingebaute Sortierinformation/-Funktion). Die Implementierung erfolgt also mit nativem HTML + erweiterndem ARIA.
-3. Es ist ein APG zu sortierbaren Tabellen [vorhanden](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/). Dies empfiehlt, das native ```<th>```-HTML-Element zuverwenden und zusätzlich das ARIA-Attribut ```aria-sort``` sowie eine ergänzende Ansage, dass entsprechende Stellen sortierbar sind, zu setzen, was zur abgeleiteten Strategie in Punkt 2 passt.
-4. Der Wert von ```aria-sort``` (*ascending* oder *descending*) wird im Code aus dem vorhandenen Wert ```item-order``` für die entsprechende Zelle (bzw. die dazugehörige Spalte) abgeleitet. Um dem Nutzer vor dem Betätigen der Buttons schon mitzuteilen, dass eine Spalte sortierbar ist, wurde diese Information in einem ```aria-label``` ergänzt. Das ```aria-label``` gibt jetzt den Titel des Elements (also hier die Spaltenüberschrift) sowie die Sortierbarkeit/Sortierung aus.
+1. Das Issue (bestätigt durch die Tests) betrifft die fehlende Ansage von deaktivierten bzw. ungültigen Zeitwerten durch Screenreader. In den Tests fiel außerdem auf, dass die Input-Felder nicht durch ein Label beschrieben werden, deren Zweck und Funktion also für Screenreader-Nutzende unzugänglich bleibt. Dies betrifft die für die Zeiteingabe zuständigen Input-Felder innerhalb der Komponente `VTimepicker`. Die eigentliche Uhr der Komponente wurde hier nach den WCAG als "entbehrlich" (d.h. Komponente kann auch ohne diese vollständig bedient werden) und somit nicht kritisch für die Barrierefreihiet der Komponente eingestuft und deswegen in der Optimierung nicht berücksichtigt.
+2. Pfad im Entscheidungsbaum: **JA** (`<input>`), **NEIN** (ungültige Zustände werden nicht angesagt). Die Implementierung erfolgt also mit nativem HTML + erweiterndem ARIA.
+3. Es existiert kein spezifisches APG für Timepicker-Komponenten. In der WAI-ARIA-Spezifikation ist jedoch das Attribut `aria-invalid` vorgesehen und auch (bestätigt nach Sichtung des ARIA in HTML-Dokuments) für HTML-`<input>`-Elemente zulässig.
+4. Das native Element wird in Vuetify bereits verwendet und folglich durch ARIA-Attribute ergänzt: Bei deaktivierten oder ungültigen Zeitwerten wird `aria-invalid` auf den entsprechenden Input-Feldern gesetzt. Zusätzlich wurde der Status im `aria-label` ergänzt, sodass Screenreader den ungültigen Zustand zusammen mit der Bezeichnung des Feldes ansagen.
 
 Link zur PR: folgt
 
-Code:
+Code:  
 SC folgt
+
 
 ### VAutocomplete
 
@@ -71,11 +68,50 @@ Das zugrundegelegene Issue wurde zur Projektlaufzeit kurz vor Implementierungsbe
 
 ## Fazit
 
+## Fazit
+
+Die in diesem Repository dokumentierten Implementierungen zeigen, dass sich die Screenreader-Kompatibilität von Vuetify-Komponenten mit den durchgeführten Anpassungen deutlich verbessern lies. Durch die systematische Analyse der Issues, die Nutzung des Entscheidungsbaums und den Abgleich mit bestehenden Standards konnten konkrete Ursachen identifiziert und behoben werden.
+
+Besonders deutlich wurde, dass native HTML-Semantik eine Grundlage für Barrierefreiheit bietet, jedoch in vielen Fällen durch ergänzende ARIA-Rollen und -Attribute vervollständigt werden muss. Gleichzeitig zeigen die Beispiele, dass fehlende oder unvollständige Semantik erhebliche Auswirkungen auf die Nutzbarkeit mit Screenreadern haben kann.
+
+Die Pull-Requests sollen nicht nur die behandelten Komponenten verbessern, sondern auch als Orientierung für zukünftige Accessibility-Anpassungen in Vuetify dienen. Der entwickelte Entscheidungsbaum hat sich dabei als praktisches Hilfsmittel erwiesen, um konsistente und nachvollziehbare Implementierungsentscheidungen zu treffen.
+
+
 ## Kurzes ARIA-Glossar
 
-```aria-label```: todo
-```aria-sort```: todo
-```<th>```:
+[Referenz für ARIA-Definitionen](https://www.w3.org/TR/wai-aria-1.2/)
+
+```aria-label```:  
+Stellt eine für Screenreader zugängliche Beschriftung für ein Element bereit, wenn kein sichtbares oder korrekt zugeordnetes Label vorhanden ist. Wird genutzt, um Zweck oder Zustand eines Elements eindeutig anzusagen.
+
+```aria-sort```:  
+Gibt die aktuelle Sortierreihenfolge einer Tabellenspalte an. Zulässige Werte sind `ascending` und `descending`. Wird typischerweise auf `<th>`-Elementen verwendet.
+
+```aria-expanded```:  
+Kennzeichnet, ob ein ausklappbares Element (z. B. ein Knoten in einer Treeview) aktuell ein- oder ausgeklappt ist. Mögliche Werte sind `true` oder `false`.
+
+```aria-checked```:  
+Gibt den Auswahlzustand eines auswählbaren Elements an (z. B. Checkboxen oder auswählbare Treeview-Einträge). Wird von Screenreadern angesagt, um den aktuellen Zustand zu vermitteln.
+
+```aria-invalid```:  
+Markiert ein Eingabefeld als ungültig. Wird von Screenreadern angesagt, um auf fehlerhafte oder nicht zulässige Eingaben hinzuweisen. Das Attribut ist auch für native HTML-Input-Elemente zulässig.
+
+```role="tree"```:  
+Kennzeichnet ein Element als übergeordnete Baumstruktur. Ermöglicht Screenreadern, die enthaltenen Elemente als hierarchisch zusammengehörig zu interpretieren.
+
+```role="treeitem"```:  
+Kennzeichnet ein einzelnes Element innerhalb einer Treeview. Wird verwendet, um Einträge als Teil einer Baumstruktur auszuzeichnen.
+
+[Referenz für HTML-Definitionen](https://html.spec.whatwg.org/multipage/)
+
+```<th>```:  
+Tabellenkopfzelle in HTML. Stellt native Semantik für Spalten- oder Zeilenüberschriften bereit und wird von Screenreadern automatisch als solche erkannt.
+
+```<input>```:  
+Natives HTML-Formularelement zur Dateneingabe. Bietet von Haus aus gute Accessibility-Unterstützung, kann aber durch ARIA-Attribute (z. B. `aria-invalid`) ergänzt werden.
+
+
+
 
 
 
