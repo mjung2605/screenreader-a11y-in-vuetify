@@ -19,11 +19,11 @@ Der Inhalt dieses Repos soll die Implementierungsentscheidungen pro Komponente u
 
 ## Implementierung pro Komponente
 
-Die Implementierungen basieren auf den entsprechenden Issues aus dem Vuetify-Repo, selbst durchgeführten Tests sowie dem oben beschriebenen Entscheidungsbaum. Zur besseren Nachvollziehbarkeit sind all diese Artefakte ebenfalls in diesem Repository hinterlegt (im Ordner Artefakte). Die Darlegung der Strategie erfolgt nun pro Komponente nach dem in der Einleitung aufgeführten Schema. 
+Die Implementierungen basieren auf den entsprechenden Issues aus dem Vuetify-Repo, selbst durchgeführten Tests sowie dem oben beschriebenen Entscheidungsbaum (s. folgende Abbildung). Zur besseren Nachvollziehbarkeit sind all diese Artefakte ebenfalls in diesem Repository hinterlegt (im Ordner Artefakte). Die Darlegung der Strategie erfolgt nun pro Komponente nach dem in der Einleitung aufgeführten Schema. 
+
+![Entscheidungsbaum](/artefakte/entscheidungsbaum.jpg)
 
 Ein [Glossar](https://github.com/mjung2605/screenreader-a11y-in-vuetify/blob/main/README.md#kurzes-aria-glossar) mit einer Auflistung und Definition aller verwendeten Elemente (z.B. ARIA-Attribute) befindet sich am Ende dieser README.
-
-/// Bild Entscheidungsbaum folgt
 
 ### VDataTable
 
