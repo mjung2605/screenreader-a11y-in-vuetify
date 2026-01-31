@@ -68,8 +68,6 @@ Das zugrundegelegene Issue wurde zur Projektlaufzeit kurz vor Implementierungsbe
 
 ## Fazit
 
-## Fazit
-
 Die in diesem Repository dokumentierten Implementierungen zeigen, dass sich die Screenreader-Kompatibilität von Vuetify-Komponenten mit den durchgeführten Anpassungen deutlich verbessern lies. Durch die systematische Analyse der Issues, die Nutzung des Entscheidungsbaums und den Abgleich mit bestehenden Standards konnten konkrete Ursachen identifiziert und behoben werden.
 
 Besonders deutlich wurde, dass native HTML-Semantik eine Grundlage für Barrierefreiheit bietet, jedoch in vielen Fällen durch ergänzende ARIA-Rollen und -Attribute vervollständigt werden muss. Gleichzeitig zeigen die Beispiele, dass fehlende oder unvollständige Semantik erhebliche Auswirkungen auf die Nutzbarkeit mit Screenreadern haben kann.
