@@ -32,10 +32,7 @@ Ein [Glossar](https://github.com/mjung2605/screenreader-a11y-in-vuetify/blob/mai
 3. Es ist ein [APG zu sortierbaren Tabellen](https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/) vorhanden. Dies empfiehlt, das native ```<th>```-HTML-Element zu verwenden und zusätzlich das ARIA-Attribut ```aria-sort``` sowie eine ergänzende Ansage, dass entsprechende Stellen sortierbar sind, zu setzen, was zur abgeleiteten Strategie in Punkt 2 passt.
 4. Der Wert von ```aria-sort``` wird im Code aus dem vorhandenen Wert ```item-order``` für die entsprechende Zelle (bzw. die dazugehörige Spalte) abgeleitet. ```aria-sort``` kann zwei Werte annehmen: *ascending* oder *descending*. Um dem Nutzer vor dem Betätigen der Buttons schon mitzuteilen, dass eine Spalte sortierbar ist, wurde diese Information in einem ```aria-label``` ergänzt. Das ```aria-label``` gibt jetzt den Titel des Elements (also hier die Spaltenüberschrift) sowie die Sortierbarkeit/Sortierung aus.
 
-Link zur PR: folgt
-
-Code:
-SC folgt
+[Link zur Data Table Pull Request](https://github.com/vuetifyjs/vuetify/pull/22575)
 
 ### VTreeview
 
@@ -44,10 +41,7 @@ SC folgt
 3. Es ist ein [APG für Treeviews](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/) vorhanden. Dieses empfiehlt u. a. die Rollen `tree` und `treeitem` sowie die Attribute `aria-expanded`, `aria-checked` und eine eindeutige Beschriftung. In Vuetify war davon nur `aria-checked` bereits vorhanden.
 4. In `VTreeview` wurde die Rolle `tree` ergänzt. In `VTreeviewItem` wurden `role="treeitem"` und `aria-expanded` gesetzt. Zusätzlich wurde in `VTreeviewChildren` ein `aria-label` ergänzt, um den jeweiligen Teilbaum zu beschreiben. Dadurch werden Struktur und Zustand der Treeview für Screenreader nachvollziehbar.
 
-Link zur PR: folgt
-
-Code:  
-SC folgt
+Link zur Treeview Pull Request
 
 ### VTimepicker
 
@@ -56,11 +50,7 @@ SC folgt
 3. Es existiert kein spezifisches APG für Timepicker-Komponenten. In der WAI-ARIA-Spezifikation ist jedoch das Attribut `aria-invalid` vorgesehen und auch (bestätigt nach Sichtung des ARIA in HTML-Dokuments) für HTML-`<input>`-Elemente zulässig.
 4. Das native Element wird in Vuetify bereits verwendet und folglich durch ARIA-Attribute ergänzt: Bei deaktivierten oder ungültigen Zeitwerten wird `aria-invalid` auf den entsprechenden Input-Feldern gesetzt. Zusätzlich wurde der Status im `aria-label` ergänzt, sodass Screenreader den ungültigen Zustand zusammen mit der Bezeichnung des Feldes ansagen.
 
-Link zur PR: folgt
-
-Code:  
-SC folgt
-
+[Link zur Time Picker Pull Request](https://github.com/vuetifyjs/vuetify/pull/22576)
 
 ### VAutocomplete
 
