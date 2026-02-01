@@ -41,7 +41,7 @@ Ein [Glossar](https://github.com/mjung2605/screenreader-a11y-in-vuetify/blob/mai
 3. Es ist ein [APG für Treeviews](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/) vorhanden. Dieses empfiehlt u. a. die Rollen `tree` und `treeitem` sowie die Attribute `aria-expanded`, `aria-checked` und eine eindeutige Beschriftung. In Vuetify war davon nur `aria-checked` bereits vorhanden.
 4. In `VTreeview` wurde die Rolle `tree` ergänzt. In `VTreeviewItem` wurden `role="treeitem"` und `aria-expanded` gesetzt. Zusätzlich wurde in `VTreeviewChildren` ein `aria-label` ergänzt, um den jeweiligen Teilbaum zu beschreiben. Dadurch werden Struktur und Zustand der Treeview für Screenreader nachvollziehbar.
 
-Link zur Treeview Pull Request
+[Link zur Treeview Pull Request](https://github.com/vuetifyjs/vuetify/pull/22577)
 
 ### VTimepicker
 
